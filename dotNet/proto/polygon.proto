@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package polygon;
+
+option go_package = "../polygon;polygon";
+option csharp_namespace = "GrpcServer";
+
+service PolygonService {
+  rpc CalculateArea (PolygonRequest) returns (PolygonResponse);
+}
+
+message Point {
+  double x = 1;
+  double y = 2;
+}
+
+message PolygonRequest {
+  repeated Point points = 1;
+}
+
+message PolygonResponse {
+  double area = 1;
+}
+
